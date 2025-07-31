@@ -1,0 +1,224 @@
+// SCSS Variables
+$font-stack: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+// CSS Custom Properties for themes
+:root {
+  // Dark theme
+  --bg-primary: #000000;
+  --bg-secondary: #1c1c1e;
+  --bg-tertiary: #2c2c2e;
+  --text-primary: #ffffff;
+  --text-secondary: #8e8e93;
+  --accent-orange: #ff9f0a;
+  --accent-orange-pressed: #cc7f08;
+  --btn-number: #333333;
+  --btn-number-pressed: #4d4d4d;
+  --btn-operator: #ff9f0a;
+  --btn-operator-pressed: #cc7f08;
+  --btn-function: #a6a6a6;
+  --btn-function-pressed: #8a8a8a;
+  --shadow: rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='light'] {
+  // Light theme
+  --bg-primary: #f2f2f7;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f2f2f7;
+  --text-primary: #000000;
+  --text-secondary: #8e8e93;
+  --accent-orange: #ff9f0a;
+  --accent-orange-pressed: #cc7f08;
+  --btn-number: #ffffff;
+  --btn-number-pressed: #e5e5ea;
+  --btn-operator: #ff9f0a;
+  --btn-operator-pressed: #cc7f08;
+  --btn-function: #a6a6a6;
+  --btn-function-pressed: #8a8a8a;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+// Mixins for buttons
+@mixin button-base {
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+
+  // Эффект нажатия
+  &:active {
+    transform: scale(0.95);
+  }
+
+  // Эффект ripple
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+  }
+
+  &:active::before {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@mixin button-style($bg-var, $bg-pressed-var, $text-color: var(--text-primary)) {
+  background: var(#{$bg-var});
+  color: $text-color;
+
+  &:hover {
+    background: var(#{$bg-pressed-var});
+  }
+}
+
+// Reset styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Main styles
+body {
+  font-family: $font-stack;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.calculator {
+  background: var(--bg-secondary);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 20px 40px var(--shadow);
+  max-width: 320px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  @include button-style(--btn-function, --btn-function-pressed, #000000);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.display {
+  background: var(--bg-tertiary);
+  border-radius: 15px;
+  padding: 30px 20px;
+  margin-bottom: 20px;
+  text-align: right;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: all 0.3s ease;
+
+  &-secondary {
+    font-size: 18px;
+    color: var(--text-secondary);
+    margin-bottom: 5px;
+    min-height: 22px;
+    opacity: 0.7;
+  }
+
+  &-primary {
+    font-size: 48px;
+    font-weight: 300;
+    color: var(--text-primary);
+    line-height: 1;
+    word-break: break-all;
+  }
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.btn {
+  @include button-base;
+  border-radius: 50%;
+  font-size: 28px;
+  font-weight: 400;
+  height: 70px;
+  width: 70px;
+
+  // Кнопка "0" (растянута)
+  &.zero {
+    grid-column: span 2;
+    border-radius: 35px;
+    width: 152px;
+    justify-content: flex-start;
+    padding-left: 30px;
+  }
+
+  // Функциональные кнопки (AC, +/-, %)
+  &.function {
+    @include button-style(--btn-function, --btn-function-pressed, #000000);
+  }
+
+  // Цифровые кнопки (0-9)
+  &.number {
+    @include button-style(--btn-number, --btn-number-pressed);
+  }
+
+  // Операторы (+, -, ×, ÷, =)
+  &.operator {
+    @include button-style(--btn-operator, --btn-operator-pressed, #ffffff);
+
+    &.active {
+      background: #ffffff;
+      color: var(--btn-operator);
+    }
+  }
+}
+
+.error {
+  color: #ff3b30 !important;
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}

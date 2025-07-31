@@ -5,8 +5,12 @@ import prettierPlugin from 'eslint-plugin-prettier'
 import eslintConfigPrettier from 'eslint-config-prettier'
 
 export default defineConfig([
-  {plugins: {prettier: prettierPlugin}},
-  {ignores: ['node_modules', 'dist']},
+  {
+    plugins: {prettier: prettierPlugin},
+  },
+  {
+    ignores: ['node_modules', 'dist'],
+  },
   js.configs.recommended,
   {
     languageOptions: {
