@@ -23,8 +23,6 @@ export default defineConfig([
   },
   {
     files: ['**/*.js'],
-    plugins: {js},
-    extends: ['js/recommended'],
     rules: {
       ...eslintConfigPrettier.rules,
       'no-unused-vars': 'warn',

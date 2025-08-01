@@ -34,5 +34,5 @@ module.exports = {
   optimization: {
     minimize: true,
   },
-  mode: 'development',
+  mode: process.env.NODE_ENV || 'development',
 }
