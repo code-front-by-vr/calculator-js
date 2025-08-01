@@ -1,66 +1,69 @@
 # Calculator JS
 
-Простой калькулятор с возможностью переключения темы, созданный на чистом JavaScript с
-использованием Webpack.
+A simple calculator with theme switching functionality, built with vanilla JavaScript and Webpack.
+
+## Demo
+
+🚀 **Live Demo:** [Link will be added after deployment](https://your-app-url.com)
 
 ## Task
 
-Ссылка на условие задачи:
-[Требования к проекту](https://docs.google.com/document/d/1zpXXeSae-BlcxPKgw3DhxZA92cspVailrPYoaXSYrW8/edit?tab=t.0#heading=h.5dt3hghpa22f)
+Task requirements link:
+[Project Requirements](https://docs.google.com/document/d/1zpXXeSae-BlcxPKgw3DhxZA92cspVailrPYoaXSYrW8/edit?tab=t.0#heading=h.5dt3hghpa22f)
 
 ## How to run the app
 
-### Предварительные требования
+### Prerequisites
 
-- Node.js (версия 14 или выше)
+- Node.js (version 14 or higher)
 - npm
 
-### Установка зависимостей
+### Install dependencies
 
 ```bash
 npm install
 ```
 
-### Запуск в режиме разработки
+### Development mode
 
 ```bash
 npm run dev
 ```
 
-Приложение будет доступно по адресу `http://localhost:8080`
+Application will be available at `http://localhost:8080`
 
-### Сборка для production
+### Production build
 
 ```bash
 npm run build
 ```
 
-Готовые файлы будут в папке `dist/`
+Build files will be generated in the `dist/` folder
 
-### Дополнительные команды
+### Additional commands
 
 ```bash
-npm run lint       # Проверка кода ESLint
-npm run lint:fix   # Автоматическое исправление ошибок ESLint
-npm run format     # Форматирование кода с помощью Prettier
+npm run lint       # ESLint code checking
+npm run lint:fix   # Auto-fix ESLint errors
+npm run format     # Format code with Prettier
 ```
 
-## Структура проекта
+## Project structure
 
 ```
 calculator-js/
-├── src/                    # Исходный код приложения
-│   ├── index.html         # Главный HTML файл
-│   ├── index.js           # Точка входа JavaScript
-│   ├── modules/           # JavaScript модули, разделенные по функциональности
-│   │   ├── handlers.js    # Обработчики событий
-│   │   ├── helpers.js     # Вспомогательные функции
-│   │   ├── model.js       # Модель данных и основная логика
-│   │   ├── storage.js     # Работа с локальным хранилищем
-│   │   └── variables.js   # Константы и переменные
-│   └── styles/            # Стили приложения
-│       └── main.scss      # Главный SCSS файл
-├── eslint.config.mjs      # Конфигурация ESLint
-├── webpack.config.js      # Конфигурация Webpack
-└── package.json           # Зависимости и скрипты npm
+├── src/                    # Application source code
+│   ├── index.html         # Main HTML file
+│   ├── index.js           # JavaScript entry point
+│   ├── modules/           # JavaScript modules divided by functionality
+│   │   ├── handlers.js    # Event handlers
+│   │   ├── helpers.js     # Helper functions
+│   │   ├── model.js       # Data model and main logic
+│   │   ├── storage.js     # Local storage management
+│   │   └── variables.js   # Constants and variables
+│   └── styles/            # Application styles
+│       └── main.scss      # Main SCSS file
+├── eslint.config.mjs      # ESLint configuration
+├── webpack.config.js      # Webpack configuration
+└── package.json           # npm dependencies and scripts
 ```
