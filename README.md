@@ -4,7 +4,8 @@ A simple calculator with theme switching functionality, built with vanilla JavaS
 
 ## Demo
 
-🚀 **Live Demo:** [Link will be added after deployment](https://calculator-js-woad.vercel.app/)
+🚀 **Deployed App:**
+[https://calculator-js-woad.vercel.app/](https://calculator-js-woad.vercel.app/)
 
 ## Task
 
