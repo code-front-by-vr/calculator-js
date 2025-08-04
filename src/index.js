@@ -1,7 +1,8 @@
 import './styles/main.scss'
-import {numberButtons, operatorButtons, themeToggle} from './modules/variables'
-import {handleClickButton, handleClickThemeToggle} from './modules/handlers'
-import {initializeTheme} from './modules/helpers'
+import {numberButtons, operatorButtons} from './modules/calculator/variables.js'
+import {handleClickButton} from './modules/calculator/handlers.js'
+import {initializeTheme, handleClickThemeToggle} from './modules/theme/theme.js'
+import {themeToggle} from './modules/theme/variables.js'
 
 initializeTheme()
 

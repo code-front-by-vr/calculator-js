@@ -1,6 +1,4 @@
 import {calculator} from './variables.js'
-import {getThemeFromStorage, setThemeToStorage} from './storage.js'
-import {applyTheme} from './helpers.js'
 
 function handleClickButton(e) {
   const button = e.currentTarget
@@ -37,12 +35,4 @@ function handleAction(action) {
   }
 }
 
-function handleClickThemeToggle() {
-  const currentTheme = getThemeFromStorage()
-  const newTheme = currentTheme === 'light' ? 'dark' : 'light'
-
-  applyTheme(newTheme)
-  setThemeToStorage(newTheme)
-}
-
-export {handleClickButton, handleAction, handleClickThemeToggle}
+export {handleClickButton, handleAction}

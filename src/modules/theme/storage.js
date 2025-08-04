@@ -1,4 +1,4 @@
-import {storageKey} from './variables.js'
+const storageKey = 'theme'
 
 function getThemeFromStorage() {
   const data = localStorage.getItem(storageKey)

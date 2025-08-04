@@ -26,7 +26,7 @@ export default defineConfig([
     rules: {
       ...eslintConfigPrettier.rules,
       'no-unused-vars': 'warn',
-      'no-undef': 'warn',
+      'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     },
   },
 ])
