@@ -51,18 +51,23 @@ npm run format     # Format code with Prettier
 
 ```
 calculator-js/
-├── src/                    # Application source code
-│   ├── index.html         # Main HTML file
-│   ├── index.js           # JavaScript entry point
-│   ├── modules/           # JavaScript modules divided by functionality
-│   │   ├── handlers.js    # Event handlers
-│   │   ├── helpers.js     # Helper functions
-│   │   ├── model.js       # Data model and main logic
-│   │   ├── storage.js     # Local storage management
-│   │   └── variables.js   # Constants and variables
-│   └── styles/            # Application styles
-│       └── main.scss      # Main SCSS file
-├── eslint.config.mjs      # ESLint configuration
-├── webpack.config.js      # Webpack configuration
-└── package.json           # npm dependencies and scripts
+├── src/                        # Application source code
+│   ├── index.html             # Main HTML file
+│   ├── index.js               # JavaScript entry point
+│   ├── modules/               # JavaScript modules divided by functionality
+│   │   ├── calculator/        # Calculator functionality
+│   │   │   ├── handlers.js    # Calculator event handlers
+│   │   │   ├── model.js       # Calculator logic and data model
+│   │   │   └── variables.js   # Calculator variables
+│   │   └── theme/             # Theme switching functionality
+│   │       ├── storage.js     # Theme local storage management
+│   │       ├── theme.js       # Theme switching logic
+│   │       └── variables.js   # Theme variables
+│   └── styles/                # Application styles
+│       └── main.scss          # Main SCSS file
+├── eslint.config.mjs          # ESLint configuration
+├── package-lock.json          # npm dependencies lock file
+├── package.json               # npm dependencies and scripts
+├── README.md                  # Project documentation
+└── webpack.config.js          # Webpack configuration
 ```
